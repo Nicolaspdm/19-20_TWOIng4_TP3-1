@@ -34,41 +34,38 @@ class Container extends React.Component{
           publi: "Toi même tu sais d'ou je viens... Ma lecture préferée ? Tetu Magazine.",
         },
       ],
-      show_profil: 0
+      show: 0
     };
   }
 
   handleClick(i){
-      this.setState({show_profil: i})
+      this.setState({show: i})
   }
 
 
   render() {
-   const profiles = [];
+  
 
-   for (const [index, value] of this.state.profil.entries()) {
-       profiles.push(<Navbar prenom={value.nom}
-                             onClick={() => this.handleClick(index)}
-       />)
-     }
 
    return(
        <body className="Container">
          <header>
          <nav className="nav">
-              {profiles}
+              <Navbar nom = "PRINCE" onClick={() => this.handleClick(0)}/>
+              <Navbar nom = "DUPONT" onClick={() => this.handleClick(1)}/>
+              <Navbar nom = "GHAZAL" onClick={() => this.handleClick(2)}/>
             </nav>
          </header>
          <main className="profil">
            <Profil
-               photo={this.state.profil[this.state.show_profil].photo}
-               prenom={this.state.profil[this.state.show_profil].prenom}
-               nom={this.state.profil[this.state.show_profil].nom}
-               bd={this.state.profil[this.state.show_profil].bd}
+               photo={this.state.profil[this.state.show].photo}
+               prenom={this.state.profil[this.state.show].prenom}
+               nom={this.state.profil[this.state.show].nom}
+               bd={this.state.profil[this.state.show].bd}
            />
 
            <Publi
-               publi={this.state.profil[this.state.show_profil].publi}
+               publi={this.state.profil[this.state.show].publi}
           />
 
          </main>

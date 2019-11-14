@@ -3,10 +3,11 @@ import React from 'react';
 
 class Navbar extends React.Component {
 render() {
+   const profils = [];
     return(
       <div class="navbar">
         <button onClick={this.props.onClick}>
-            {this.props.prenom}
+            {this.props.nom}
         </button>
         </div>
     );
